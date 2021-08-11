@@ -72,6 +72,14 @@ function handleCM(event){//우클릭 방지
     event.preventDefault();
 }
 
+function saveClick(event){
+    const image = canvas.toDataURL();
+    const link = document.createElement("a");
+    link.href = image;
+    link.download = "Paint[🎨]";
+    link.click();
+}
+
 if(canvas){
     canvas.addEventListener("mousemove", onMouseMove);
     canvas.addEventListener("mousedown", startPainting);
@@ -93,3 +101,6 @@ if(mode){
     mode.addEventListener("click", changeMode);
 }
 
+if(save){
+    save.addEventListener("click", saveClick);
+}
